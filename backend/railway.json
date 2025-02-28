@@ -1,10 +1,7 @@
 {
     "build": {
-      "command": "npm install"
-    },
-    "deploy": {
-      "command": "node src/index.js",
-      "restartPolicyType": "ON_FAILURE"
+      "dockerfile": "backend/Dockerfile",
+      "context": "backend"
     }
   }
   

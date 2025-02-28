@@ -1,10 +1,20 @@
+# Utiliser une image Node.js comme base
 FROM node:18
 
-WORKDIR /app
+# Créer un répertoire de travail
+WORKDIR /usr/src/app
 
-COPY package.json package-lock.json ./
+# Copier le fichier package.json et package-lock.json (ou yarn.lock)
+COPY backend/package*.json ./
+
+# Installer les dépendances
 RUN npm install
 
-COPY . .
+# Copier tous les fichiers du backend dans le container
+COPY backend/ ./
 
-CMD ["npm", "start"]
+# Exposer le port sur lequel le serveur tourne
+EXPOSE 3000
+
+# Démarrer le serveur (ou toute commande pour démarrer ton backend)
+CMD [ "npm", "run", "start" ]
