@@ -5,13 +5,13 @@ FROM node:18
 WORKDIR /usr/src/app
 
 # Copier le fichier package.json et package-lock.json (ou yarn.lock)
-COPY backend/package*.json ./
+COPY package*.json ./
 
 # Installer les dépendances
 RUN npm install
 
 # Copier tous les fichiers du backend dans le container
-COPY backend/ ./
+COPY . .
 
 # Exposer le port sur lequel le serveur tourne
 EXPOSE 3000
